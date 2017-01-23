@@ -1,0 +1,5 @@
+### Exercise 1
+* Connect to the MySQL instance within your Workspace using your Cloud9 username
+
+mysql-ctl start
+mysql -u username
