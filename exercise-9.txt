@@ -1,0 +1,44 @@
+### Exercise 9
+
+* Create a data model representing a Barn with Chickens :hatching_chick:
+* This model should provide answers to the following questions:
+  * How many rooster, hen and chicks existed in the Barn on a specific date
+  * How many chicks will come to age on a specific date
+  
+  create database Barn_with_CHickens;
+  use Barn_with_CHickens;
+  create table hatching_chick;
+  create table barn(id int auto_increment primary key, type ENUM('rooster', 'hen', 'chicks'), birthday date, count_date date, death_date date);
+  mysql> insert into barn values (null, "rooster", "2016-01-01", null),(null, "chicks", 
+  "2017-01-01", null), (null, "hen", "2016-10-01", null),(null, "rooster", "2016-05-01", "2017-01-01"), 
+  (null, "chicks", "2017-02-01", null),(null, "chicks", "2017-01-21", null); 
+  
+  mysql> select * from barn where death_date is null;
++----+---------+------------+------------+
+| id | type    | birthday   | death_date |
++----+---------+------------+------------+
+|  1 | rooster | 2016-01-01 | NULL       |
+|  2 | chicks  | 2017-01-01 | NULL       |
+|  3 | hen     | 2016-10-01 | NULL       |
+|  5 | chicks  | 2017-02-01 | NULL       |
+|  6 | chicks  | 2017-01-21 | NULL       |
++----+---------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select count(barn.id) from barn where death_date is null and birthday > "2017-01-01";
++----------------+
+| count(barn.id) |
++----------------+
+|              2 |
++----------------+
+1 row in set (0.00 sec)
+
+
+mysql> select count(barn.id) from barn where date_add(birthday, interval 21 day) < "2018-02-03";
++----------------+
+| count(barn.id) |
++----------------+
+|              6 |
++----------------+
+1 row in set (0.00 sec)
+

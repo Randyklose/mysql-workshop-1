@@ -1,0 +1,16 @@
+### Exercise 3
+* Remove database named ```decodemtl_test``` from MySQL
+
+DROP database decodemtl_test;
+
++-----------------------+
+| Database              |
++-----------------------+
+| information_schema    |
+| c9                    |
+| decodemtl_addressbook |
+| mysql                 |
+| performance_schema    |
+| phpmyadmin            |
++-----------------------+
+6 rows in set (0.00 sec)

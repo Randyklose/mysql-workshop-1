@@ -1,0 +1,13 @@
+### Exercise 7
+* Return list of tables within database ```decodemtl_addressbook```
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_decodemtl_addressbook |
++---------------------------------+
+| Account                         |
+| AddressBook                     |
+| Entry                           |
++---------------------------------+
+3 rows in set (0.00 sec)
+

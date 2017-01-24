@@ -1,0 +1,42 @@
+### Exercise 8
+* Reflect the data model shown in ```schema/addressbook_denormalized.png``` within database ```decodemtl_addressbook```
+  * ```Account.id``` is a primary auto-increment key
+  * ```AddressBook.id``` is a primary auto-increment key
+  * ```Entry.id``` is a primary auto-increment key
+  * ```Entry.type``` is an ENUM column permitting ```home```, ```work``` and ```other```
+  * ```Entry.subtype``` is an ENUM column permitting ```phone```, ```address``` and ```email```
+  
+  ALTER TABLE Account ADD COLUMN id int auto_increment primary key;
+  mysql> describe Account;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
++-------+---------+------+-----+---------+----------------+
+1 row in set (0.00 sec)
+
+ALTER TABLE AddressBook ADD COLUMN id int auto_increment primary key;
+
+mysql> describe AddressBook;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
++-------+---------+------+-----+---------+----------------+
+1 row in set (0.00 sec)
+
+//ENTRY
+
+ALTER TABLE Entry ADD COLUMN id int auto_increment primary key;
+ALTER TABLE ENTRY ADD COLUMN type ENUM('home', 'work', 'other');
+ALTER TABLE ENTRY ADD COLUMN subtype ENUM('phone', 'address', 'email');
+
+mysql> describe Entry;
++---------+---------------------------------+------+-----+---------+----------------+
+| Field   | Type                            | Null | Key | Default | Extra          |
++---------+---------------------------------+------+-----+---------+----------------+
+| id      | int(11)                         | NO   | PRI | NULL    | auto_increment |
+| subtype | enum('phone','address','email') | YES  |     | NULL    |                |
+| type    | enum('home','work','other')     | YES  |     | NULL    |                |
++---------+---------------------------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)

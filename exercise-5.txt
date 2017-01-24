@@ -1,0 +1,22 @@
+### Exercise 5
+* Create table ```Account``` for database ```decodemtl_addressbook```
+* Create table ```AddressBook``` for database ```decodemtl_addressbook```
+* Create table ```Entry``` for database ```decodemtl_addressbook```
+* Create table ```Test``` for database ```decodemtl_addressbook```
+
+USE decodemtl_addressbook;
+CREATE TABLE Account(id int auto_increment primary key);
+CREATE TABLE AddressBook(id int auto_increment primary key);
+CREATE TABLE Entry(id int auto_increment primary key);
+CREATE TABLE Test(id int auto_increment primary key);
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_decodemtl_addressbook |
++---------------------------------+
+| Account                         |
+| AddressBook                     |
+| Entry                           |
+| Test                            |
++---------------------------------+
+4 rows in set (0.00 sec)

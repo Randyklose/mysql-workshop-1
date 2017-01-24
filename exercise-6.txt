@@ -1,0 +1,14 @@
+### Exercise 6
+* Remove table ```Test``` for database ```decodemtl_addressbook```
+
+mysql> drop table Test;
+Query OK, 0 rows affected (0.01 sec)
+mysql> show tables;
++---------------------------------+
+| Tables_in_decodemtl_addressbook |
++---------------------------------+
+| Account                         |
+| AddressBook                     |
+| Entry                           |
++---------------------------------+
+3 rows in set (0.00 sec)
